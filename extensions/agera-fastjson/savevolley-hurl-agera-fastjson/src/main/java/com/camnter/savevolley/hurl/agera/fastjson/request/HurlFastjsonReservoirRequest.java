@@ -35,7 +35,7 @@ import java.io.UnsupportedEncodingException;
 public class HurlFastjsonReservoirRequest<T> extends HurlReservoirRequest<T>
     implements Response.Listener<T>, Response.ErrorListener {
 
-    protected static final String PROTOCOL_CHARSET = "utf-8";
+    private static final String PROTOCOL_CHARSET = "utf-8";
 
     private final Response.Listener<T> mResponseListener;
     @NonNull
@@ -48,7 +48,7 @@ public class HurlFastjsonReservoirRequest<T> extends HurlReservoirRequest<T>
     }
 
 
-    public HurlFastjsonReservoirRequest(@NonNull int method,
+    public HurlFastjsonReservoirRequest(int method,
                                         @NonNull String url,
                                         @NonNull Class<T> clazz) {
         super(method, url, null);
@@ -59,7 +59,7 @@ public class HurlFastjsonReservoirRequest<T> extends HurlReservoirRequest<T>
 
     @Override protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            String jsonString = new String(response.data,
+            String jsonString = new String(response.getResultData(),
                 HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
             return Response.success(JSON.parseObject(jsonString, this.mClass),
                 HttpHeaderParser.parseCacheHeaders(response));

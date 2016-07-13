@@ -17,6 +17,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 23
@@ -42,8 +43,8 @@ dependencies {
     compile project(':extensions:savevolley-okhttp3-agera-core')
     provided project(':savevolley-okhttp3')
 
-    provided 'com.alibaba:fastjson:1.1.52.android'
-    provided 'com.google.android.agera:agera:1.1.0-beta2'
+    provided "com.alibaba:fastjson:$gradle.fastjsonVersion"
+    provided "com.google.android.agera:agera:$gradle.ageraVersion"
 }
 
 android {
@@ -57,7 +58,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 }
 
 publish {

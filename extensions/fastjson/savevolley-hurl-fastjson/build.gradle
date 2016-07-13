@@ -17,6 +17,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 23
@@ -40,7 +41,7 @@ android {
 
 dependencies {
     provided project(':savevolley-hurl')
-    provided 'com.alibaba:fastjson:1.1.52.android'
+    provided "com.alibaba:fastjson:$gradle.fastjsonVersion"
 }
 
 android {
@@ -54,7 +55,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 }
 
 publish {

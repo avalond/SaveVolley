@@ -36,14 +36,15 @@ include ':extensions:agera-fastjson:savevolley-hurl-agera-fastjson',
         ':savevolley-network-core',
         ':savevolley-network-hurl-adapter',
         ':savevolley-network-okhttp3-adapter',
-        ':savevolley-okhttp3',
+        ':savevolley-okhttp3'
 
-        ':volley-comments'
+gradle.ext.ageraVersion = '1.1.0'
+gradle.ext.okhttp3Version = '3.3.1'
+gradle.ext.gsonVersion = '2.7'
+gradle.ext.fastjsonVersion = '1.1.52.android'
 
-
-
-gradle.ext.versionCode = 164
-gradle.ext.versionName = '1.6.4'
+gradle.ext.versionCode = 166
+gradle.ext.versionName = '1.6.6'
 
 gradle.ext.bintrayRepo = 'maven'
 gradle.ext.bintrayName = 'SaveVolley'
